@@ -1,0 +1,14 @@
+.nav-link {
+  @apply inline-flex justify-start items-center gap-2;
+  @apply py-3 px-3 rounded-lg;
+  @apply min-w-60;
+  @apply font-medium;
+  @apply transition-colors duration-300;
+  @apply hover:bg-default-100;
+}
+
+.nav-link.active {
+  @apply bg-primary-50;
+  @apply border border-primary-100;
+  @apply text-primary-600 font-semibold;
+}

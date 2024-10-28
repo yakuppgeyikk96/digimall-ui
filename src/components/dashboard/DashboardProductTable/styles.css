@@ -1,0 +1,4 @@
+.action-icon-container {
+  @apply w-6;
+  @apply cursor-pointer;
+}

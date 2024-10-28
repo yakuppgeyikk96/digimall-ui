@@ -1,0 +1,5 @@
+.nav-list {
+  @apply flex flex-col;
+  @apply border-r;
+  @apply min-h-[calc(100vh-4rem)];
+}
