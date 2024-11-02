@@ -2,9 +2,8 @@ import {
   NavbarBrand,
   Navbar as NavbarContainer,
   NavbarContent,
-  NavbarItem,
 } from "@nextui-org/navbar";
-import { Button, Link } from "@nextui-org/react";
+import NavbarActions from "./NavbarActions";
 
 export default function Navbar() {
   return (
@@ -20,11 +19,7 @@ export default function Navbar() {
         </NavbarItem>
       </NavbarContent> */}
       <NavbarContent justify="end">
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign up
-          </Button>
-        </NavbarItem>
+        <NavbarActions />
       </NavbarContent>
     </NavbarContainer>
   );

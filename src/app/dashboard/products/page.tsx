@@ -15,7 +15,7 @@ interface IProductPageProps {
 export default async function ProductPage({ searchParams }: IProductPageProps) {
   const text = searchParams.text;
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
-  const pageSize = searchParams.pageSize ? parseInt(searchParams.pageSize) : 1;
+  const pageSize = searchParams.pageSize ? parseInt(searchParams.pageSize) : 10;
 
   const productsResponse = await getProducts({
     text,
@@ -42,7 +42,7 @@ export default async function ProductPage({ searchParams }: IProductPageProps) {
       <Pagination
         isCompact
         className="mt-4 flex justify-center"
-        total={100}
+        total={productsResponse.pagination?.total || 0}
         initialPage={1}
       />
     </DashboardPageLayout>

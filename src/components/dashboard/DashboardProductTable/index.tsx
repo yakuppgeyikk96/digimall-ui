@@ -22,11 +22,7 @@ export default function DashboardProductTable({
   });
 
   return (
-    <Table
-      removeWrapper
-      selectionMode="multiple"
-      className="border border-default-400 rounded-lg"
-    >
+    <Table removeWrapper className="border border-default-400 rounded-lg">
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>

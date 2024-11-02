@@ -5,6 +5,7 @@ import {
   PaginationProps,
 } from "@nextui-org/pagination";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 
 export default function Pagination({
   isCompact,
@@ -21,17 +22,23 @@ export default function Pagination({
     const params = new URLSearchParams(searchParams.toString());
 
     params.set("page", newPage.toString());
-    params.set("pageSize", "1");
+    params.set("pageSize", params.get("pageSize") || "10");
 
     router.push(`${pathname}?${params.toString()}`);
   };
+
+  const totalPage = useMemo(() => {
+    const currentPageSize = parseInt(searchParams.get("pageSize") || "10");
+
+    return Math.ceil(total / currentPageSize);
+  }, [total, searchParams]);
 
   return (
     <NextUIPagination
       className={className}
       isCompact={isCompact}
       showControls={showControls}
-      total={total}
+      total={totalPage}
       page={page}
       onChange={handlePageChange}
     />

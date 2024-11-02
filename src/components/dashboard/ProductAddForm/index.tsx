@@ -18,8 +18,7 @@ export default function ProductAddForm() {
 
   const handleSubmit = (formData: FormData) => {
     mutation.mutateAsync(formData, {
-      onSuccess: (response) => {
-        console.log("Product added", response);
+      onSuccess: () => {
         router.push("/dashboard/products");
       },
       onError: (error) => {

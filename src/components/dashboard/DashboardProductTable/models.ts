@@ -2,6 +2,7 @@ import IProduct from "@/common/models/product/IProduct";
 
 export interface IDashboardProductTableData {
   id: string;
+  index: number;
   name: string;
   description: string;
   price: number;
@@ -11,6 +12,7 @@ export interface IDashboardProductTableData {
 }
 
 export type IDashboardProductTableColumnNames =
+  | "index"
   | "name"
   | "description"
   | "price"

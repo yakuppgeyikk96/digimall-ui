@@ -18,6 +18,10 @@ const useDashboardProductTableLogic = ({
 }: IDashboardProductTableProps) => {
   const columns: IDashboardProductTableColumnItem[] = [
     {
+      key: "index",
+      label: "#",
+    },
+    {
       key: "images",
       label: "Images",
     },
@@ -48,7 +52,8 @@ const useDashboardProductTableLogic = ({
   ];
 
   const rows: IDashboardProductTableData[] = useMemo(() => {
-    return products.map((product) => ({
+    return products.map((product, index) => ({
+      index: index + 1,
       id: product.id,
       name: product.name,
       description: product.description || "-",
@@ -71,6 +76,8 @@ const useDashboardProductTableLogic = ({
       }
 
       switch (columnKey) {
+        case "index":
+          return <div className="text-center">{cellValue}</div>;
         case "images":
           return (
             <Image

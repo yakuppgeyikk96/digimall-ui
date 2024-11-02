@@ -5,6 +5,7 @@ import AppLayout from "@/layouts/AppLayout";
 
 import "./globals.css";
 import "@/config/firebase";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,7 +34,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-default-50`}
       >
         <NextUIProvider>
-          <AppLayout>{children}</AppLayout>
+          <AuthProvider>
+            <AppLayout>{children}</AppLayout>
+          </AuthProvider>
         </NextUIProvider>
       </body>
     </html>
